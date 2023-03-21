@@ -2,10 +2,12 @@
 var selectedRow = null
 
 function onFormSubmit(){
+
+    
     
 var formData = readFormData();
 
-
+// condition pour modifier
 if (selectedRow == null)
 insertNewRecord(formData);
 else
@@ -14,6 +16,7 @@ updateRecord(formData)
 
 resetForm()
 }
+
 
 function readFormData(){
     var formData = {};
@@ -37,7 +40,7 @@ function insertNewRecord(data){
     cell4 =newRow.insertCell(3);
     cell4.innerHTML = data.city;
     cell4 = newRow.insertCell(4);
-    cell4.innerHTML = `<a onclick="onEdit(this)">edit</a>  <a onclick="onDelete(this)">delete</a>`;
+    cell4.innerHTML = `<a onclick="onEdit(this)">edit</a>  <a onclick="onDelete(this)>delete</a>`;
  
 }
 function resetForm(){
@@ -73,3 +76,20 @@ function onDelete(td){
 
 }
 }
+
+function validation(){
+    isValid = true;
+    if (document.getElementById("fullName").value == ""){
+        isValid = false;
+        document.getElementById("fullNameValidationError").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("fullNameValidationError").classList.contains("hide"));
+        document.getElementById("fullNameValidationError").classList.add("hide");
+        
+        
+    }
+}
+
+
+
